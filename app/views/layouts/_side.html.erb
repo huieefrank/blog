@@ -1,0 +1,17 @@
+<div class="section">
+  <ul id="feeds">
+    <li><a href= # ><%= image_tag 'icons/feed.gif', :alt => 'RSS Feed', :size => '16x16' %> RSS Feed</a></li>
+    <li><a href= # ><%= image_tag 'icons/itunes.gif', :alt => 'On iTunes', :size => '16x16' %> on iTunes</a></li>
+  </ul>
+</div>
+<%= render :partial => 'shared/navigation' %>
+
+<div class="section">
+  <strong>tags:</strong>
+  <ul id="tags">
+  <% for tag in Tag.find(:all, :order => 'name') %>
+    <li><%= link_to h(tag.name), tag_path(tag) %></li>
+  <% end %>
+  </ul>
+</div>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  	<meta name="description" content=" " />
+  	<meta name="keywords" content=" "/>
+    <title><%= title %></title>
+    <%= render 'layouts/stylesheets' %>
+  </head>
+  <body>
+    <div class="container">
+      <div id="logo"><%= link_to_unless_current image_tag('logo.png', :size => '452x88', :alt => 'Railscasts'), root_path %></div>
+      <div id="main" >
+      	<% flash.each do |key , value| %>
+      	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+      	<% end %>
+        <%= yield %>
+      </div>
+      <div id="side">
+        <%= yield(:side) || render(:partial => 'layouts/side') %>
+      </div>
+      <div class="clear"></div>
+    </div>   
+  </body>
+</html>
