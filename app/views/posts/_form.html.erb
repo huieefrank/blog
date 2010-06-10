@@ -1,0 +1,23 @@
+<div class="content">
+  <%= error_messages_for :post %>
+  <% form_for @post do |f| %>
+    <p>
+      <%= f.label :title ,"标题" %><br />
+      <%= f.text_field :title %>
+    </p>
+    
+    <p>
+      <%= f.label :content ,"内容" %><br />
+      <%= f.text_area :content, :rows => 10 %>
+    </p>
+    
+    <p>
+      <%= f.label :published_at, '发布日期' %><br />
+      <%= f.date_select :published_at %>
+    </p>
+    
+    
+   
+    <p><%= f.submit "创建内容" %></p>
+  <% end %>
+</div>

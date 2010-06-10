@@ -1,0 +1,35 @@
+<% content_tag :head do %>
+  <link rel="alternate" type="application/rss+xml" title="Episode Comments RSS" href="<%= post_url(@post, :format => 'rss') %>" />
+<% end %>
+
+<div class="episodes">
+  <% render :layout => @post do %>
+    <div class="notes">
+      <%= textilize @post.content %>
+    </div>
+    <div id="episode_nav">
+    <% unless @post.first? %>
+      <div id="previous_episode"><%= link_to h('< Previous Episode'), @episode.higher_item %></div>
+    <% end %>
+    <% unless @episode.last_published? || @episode.last? %>
+      <div id="next_episode"><%= link_to h('Next Episode >'), @episode.lower_item %></div>
+    <% end %>
+    </div>
+    <div class="clear"></div>
+  <% end %>
+</div>
+
+
+  <h3 class="content" id="comment_count">
+    <%= link_to image_tag('icons/feed.gif', :alt => "RSS Feed for Episode Comments", :size => '16x16'), post_path(@post, :format => 'rss') %>
+    
+  </h3>
+  <div id="comments" class="content">
+    
+  </div>
+
+
+<div class="content add_comment">
+  <h3>Add your comment:</h3>
+ 
+</div>

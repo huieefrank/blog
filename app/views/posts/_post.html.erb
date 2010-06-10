@@ -1,0 +1,25 @@
+<div class="episode">
+  <div class="side">
+    <div class="number">#<%= post.id %></div>
+    <div class="published_at"><%= post.published_at.strftime('%b %d, %Y') %></div>
+    <div class="comments_count">#评论数量</div>
+    
+    <div class="actions">
+      <p><%= link_to 'Edit', edit_post_path(post) %></p>
+      <p><%= link_to 'Destroy', post, :method => :delete, :confirm => 'Are you sure?' %></p>
+    </div>
+   
+  </div>
+  <div class="main">
+    <h2><%= link_to_unless_current h(post.title), post %></h2>
+    <div class="description"><%=h post.content %></div>
+   
+      <div class="tags">
+        Tags:
+        ####
+      </div>
+      
+   </div>
+   <div class="clear"></div>
+ 
+</div>
