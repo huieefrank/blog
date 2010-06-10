@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
   	if params[:search].blank?
-  		@posts = Post.find(:all)
+  		@posts = Post.published.recent
   	else  			
   		
   	end
@@ -12,6 +12,8 @@ class PostsController < ApplicationController
   end
 
   def archive
+  	posts = Post.published.recent
+  	@posts_months = posts.group_by(&:published_month)
   end
 
   def edit
@@ -19,10 +21,16 @@ class PostsController < ApplicationController
   end
 
   def show
-  	@post = Post.find(params[:id].to_i)
-  	respond_to do |format|
-        format.html
-        format.rss
+  	 
+  	if Post.find_by_id(params[:id].to_i).nil?
+  		headers["Status"] = "301 Moved Permanently"
+        redirect_to root_path
+	else
+		@post = Post.find(params[:id].to_i)
+  	    respond_to do |format|
+  	    	format.html
+  	    	format.rss 
+  	    end   
     end
   end
 

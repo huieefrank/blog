@@ -1,2 +1,12 @@
-<h1>Posts#archive</h1>
-<p>Find me in app/views/posts/archive.html.erb</p>
+<div class="content">
+  
+  <% @posts_months.each do |month, posts| %>
+    <h2><%=h month.strftime('%B %Y') %></h2>
+    <% for post in posts %>
+      <div>
+        <%= post.id %>.
+        <%= link_to post.title, post %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
