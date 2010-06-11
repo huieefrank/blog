@@ -5,7 +5,7 @@
 <div class="episodes">
   <% render :layout => @post do %>
     <div class="notes">
-      <%= textilize @post.content %>
+      <%= h(@post.content) %>
     </div>
     <div id="episode_nav">
     <% unless @post.first? %>
