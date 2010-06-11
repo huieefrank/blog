@@ -1,0 +1,16 @@
+<h2> Sign in </h2>
+<% form_for(:session, :url=> sessions_path ) do |f| %>
+	<div class="field">
+		<%= f.label :email %> <br/>
+		<%= f.text_field :email %>
+	</div>
+	<div class ="field">
+		<%= f.label :password , "密码" %>	<br/>
+		<%= f.password_field :password  %>
+	</div>
+	
+	<div class = "actions">	
+		<%= f.submit "Sin In" %>
+	</div>
+<% end %>
+<p>New User? please <%= link_to "立即注册!", signup_path %></p>

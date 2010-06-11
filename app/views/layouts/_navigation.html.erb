@@ -13,9 +13,13 @@
 <div class="section">
   <strong>管理:</strong>
   <ul id="navigation">
-    <li><%= link_to_unless_current "New Post", "#" %></li>
-    <li><%= link_to_unless_current "Login", "#" %></li>    
-    <li><%= link_to "Logout", "#" %></li>
+  	<li><%= link_to_unless_current "注册", signup_path %> </li>
+  	<% if signed_in? %>
+    <li><%= link_to_unless_current "创建内容", new_post_path %></li>       
+    <li><%= link_to "退出", signout_path %></li>
+    <% else %>
+    <li><%= link_to_unless_current "登录", signin_path %></li> 
+    <% end %>
   </ul>
 </div>
 

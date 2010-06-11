@@ -11,6 +11,9 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
     map.resources :posts ,:collection => { :archive => :get }
+    map.resources :users
+    map.resources :sessions , :only => [:new ,:create , :destory]
+    
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
@@ -23,6 +26,9 @@ ActionController::Routing::Routes.draw do |map|
   #     products.resources :comments
   #     products.resources :sales, :collection => { :recent => :get }
   #   end
+  map.signup '/signup',   :controller => 'users', :action => 'new'
+  map.signin  '/signin',  :controller =>'sessions' , :action => 'new'
+  map.signout '/signout', :controller =>"sessions" , :action =>'destory'
 
   # Sample resource route within a namespace:
   #   map.namespace :admin do |admin|
