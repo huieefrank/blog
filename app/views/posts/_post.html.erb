@@ -5,9 +5,11 @@
     <div class="comments_count">#评论数量</div>
     
     <div class="actions">
+      <% if signed_in? %>
       <p><%= link_to 'Edit', edit_post_path(post) %></p>
       <p><%= link_to 'Destroy', post, :method => :delete, :confirm => 'Are you sure?' %></p>
-    </div>
+      <% end %>      
+  </div>
    
   </div>
   <div class="main">
