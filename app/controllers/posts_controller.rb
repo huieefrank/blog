@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
+  
   def index
   	if params[:search].blank?
   		@posts = Post.published.recent
@@ -27,6 +29,7 @@ class PostsController < ApplicationController
         redirect_to root_path
 	else
 		@post = Post.find(params[:id].to_i)
+		@comment = Comment.new(:post => @post)
   	    respond_to do |format|
   	    	format.html
   	    	format.rss 
@@ -64,4 +67,9 @@ class PostsController < ApplicationController
     flash[:notice] = "Successfully destroyed post."
     redirect_to posts_path  	
   end
+  
+  private
+	def authenticate
+		deny_access unless signed_in?
+	end
 end

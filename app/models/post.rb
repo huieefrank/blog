@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 	
+	has_many :comments, :dependent => :destroy
+	
 	validates_presence_of :title , :content ,:published_at
 	named_scope :published, lambda { {:conditions => ['published_at <= ?', Time.now.utc]} }
     named_scope :unpublished, lambda { {:conditions => ['published_at > ?', Time.now.utc]} }

@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
     map.resources :posts ,:collection => { :archive => :get }
     map.resources :users
     map.resources :sessions , :only => [:new ,:create , :destory]
+    map.resources :comments
     
 
   # Sample resource route with options:

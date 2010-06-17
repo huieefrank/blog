@@ -19,17 +19,18 @@
   <% end %>
 </div>
 
-
+<% unless @post.comments.empty? %>
   <h3 class="content" id="comment_count">
     <%= link_to image_tag('icons/feed.gif', :alt => "RSS Feed for Episode Comments", :size => '16x16'), post_path(@post, :format => 'rss') %>
-    
+    <%= pluralize @post.comments.size, '评论' %>
   </h3>
   <div id="comments" class="content">
-    
+    <%= render @post.comments %>
   </div>
+<% end %>
 
 
 <div class="content add_comment">
   <h3>Add your comment:</h3>
- 
+   <%= render :partial => 'comments/form' %> 
 </div>
