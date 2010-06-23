@@ -14,7 +14,7 @@
   </div>
   <div class="main">
     <h2><%= link_to_unless_current h(post.title), post %></h2>
-    <div class="description"><%=h post.content %></div>
+    <div class="description"><%= BlueCloth.new(post.content).to_html %></div>
    
       <div class="tags">
         Tags:
