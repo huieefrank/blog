@@ -1,0 +1,10 @@
+<div class = "section">
+	<strong>Recent Post</strong>
+	<ul id="navigation">
+		<% @recentlyposts = Post.published.recently %>
+		<% for post in @recentlyposts %>
+		<li><%= link_to_unless_current post.title ,post_path(post.id) %></li>
+		<% end %>
+			
+	 </ul>
+</div

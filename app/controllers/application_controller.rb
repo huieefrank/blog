@@ -4,6 +4,9 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   include SessionsHelper
+  
+  
+  
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   def authorize
     unless signin?
@@ -11,6 +14,8 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
   end
+  
+  
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 end
