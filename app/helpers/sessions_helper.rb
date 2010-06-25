@@ -4,7 +4,7 @@ module SessionsHelper
 		cookies[:remember_token] = { :value => user.remember_token,
 		                             
 									:expires => 20.years.from_now.utc }
-		cookies[:user_name] =user.name
+		cookies[:user_id] =user.id
 		self.current_user = user		
 	end
 	

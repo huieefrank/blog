@@ -17,6 +17,9 @@
       <%= f.label :published_at, '发布日期' %><br />
       <%= f.date_select :published_at %>
     </p>
+    <p>
+    <%= hidden_field :post, :user_id,:value => cookies[:user_id]     %>
+    </p>
     
     
    

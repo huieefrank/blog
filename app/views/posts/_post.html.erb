@@ -8,7 +8,7 @@
     
     <div class="actions">
       <% if signed_in? %>
-      <% if cookies[:user_name].to_s.eql?(post.user.name.to_s ) %>
+      <% if cookies[:user_id].to_i.eql?(post.user_id ) %>
       <p><%= link_to 'Edit', edit_post_path(post) %></p>
       <p><%= link_to 'Destroy', post, :method => :delete, :confirm => 'Are you sure?' %></p>
       <% end %>  
