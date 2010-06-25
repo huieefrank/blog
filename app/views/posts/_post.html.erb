@@ -2,7 +2,7 @@
   <div class="side">
     <div class="number">#<%= post.id %></div>
     <div class="published_at"><%= post.published_at.strftime('%b %d, %Y') %></div>
-    <div class="comments_count">#评论数量</div>
+    <div class="comments_count"><%= post.comments_count %> 评论</div>
     
     <div class="actions">
       <% if signed_in? %>
