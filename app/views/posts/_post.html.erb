@@ -3,6 +3,7 @@
     <div class="number">#<%= post.id %></div>
     <div class="published_at"><%= post.published_at.strftime('%b %d, %Y') %></div>
     <div class ="comments_count"><%= post.user.name %></div>
+    <div class = "comments_count"><h2><%= gravatar_for post.user  %> </h2></div>
    
     <div class="comments_count"><%= post.comments_count %> 评论</div>
     
