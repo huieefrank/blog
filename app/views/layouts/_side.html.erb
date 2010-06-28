@@ -8,6 +8,13 @@
 
 <%= render :partial =>'layouts/recentposts'%>
 
+<div class= "section">
+	<strong>用户群</strong>
+	<% @users = User.find(:all) %>
+	<% for user in @users %>
+	<h2><%= gravatar_for user %> </h2>
+	<% end %>
+</div>
 <div class="section">
   <strong>标签云:</strong>
   <ul id="tags">
