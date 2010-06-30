@@ -17,6 +17,16 @@ class PostsController < ApplicationController
   	posts = Post.published.recent
   	@posts_months = posts.group_by(&:published_month)
   end
+  
+  def broadcast
+  	
+  	@posts =Post.published.recent.broadcast	
+  	
+  	respond_to do |format|
+  		format.html  { @posts = @posts.paginate(:page => params[:page], :per_page =>"2")}
+  		format.rss
+  	end
+  end
 
   def edit
   	@post  = Post.find(params[:id])
@@ -72,4 +82,5 @@ class PostsController < ApplicationController
 	def authenticate
 		deny_access unless signed_in?
 	end
+	
 end

@@ -4,6 +4,9 @@
     
   </ul>
 </div>
+<div class = "section">
+	<%= link_to_unless_current( "Broadcast", {:controller=>"posts",:action=>"broadcast"}) %>
+</div>
 <%= render :partial => 'layouts/navigation' %>
 
 <%= render :partial =>'layouts/recentposts'%>

@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
     named_scope :unpublished, lambda { {:conditions => ['published_at > ?', Time.now.utc]} }
     named_scope :recent, :order => 'id DESC'
     named_scope :recently ,:order=>'id DESC' ,:limit =>10
+    named_scope :broadcast  ,lambda{ {:conditions =>"users.role ='admin' ",
+                                      :joins=> "inner join users on posts.user_id = users.id"} }
     def published_month
     published_at.beginning_of_month
     end
