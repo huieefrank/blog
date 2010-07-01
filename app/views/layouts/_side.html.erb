@@ -21,7 +21,9 @@
 <div class="section">
   <strong>标签云:</strong>
   <ul id="tags">
-  
+  <% for tag in Tag.find(:all, :order => 'name') %>
+    <li><%= link_to h(tag.name), tag_path(tag) %></li>
+  <% end %>
   </ul>
 </div>
 

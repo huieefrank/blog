@@ -20,11 +20,14 @@
   <div class="main">
     <h2><%= link_to_unless_current h(post.title), post %></h2>
     <div class="description"><%= BlueCloth.new(post.content).to_html %></div>
-   
+   <% unless post.tags.empty? %>
       <div class="tags">
         Tags:
-        ####
+        <% for tag in post.tags %>
+          <%= link_to h(tag.name), tag %>
+        <% end %>        
       </div>
+    <% end %>
       
    </div>
    <div class="clear"></div>

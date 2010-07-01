@@ -14,6 +14,7 @@ ActionController::Routing::Routes.draw do |map|
     map.resources :users
     map.resources :sessions , :only => [:new ,:create , :destory]
     map.resources :comments
+    map.resources :tags
     
 
   # Sample resource route with options:
