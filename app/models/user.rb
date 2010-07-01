@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 	EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	
 	
+	has_many :posts 
 	
 	validates_presence_of :name ,:email
 	validates_length_of :name, :within => 6..20

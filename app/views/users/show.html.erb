@@ -1,4 +1,17 @@
+<div class = "main" >
 <h2>
 <%= gravatar_for @user %>
 <%= h @user.name %>
 </h2>
+<% unless @posts.empty? %>		
+   
+   	<h2> All Article</h2>
+<% for post in @posts %>
+     <%= link_to h(post.title),post %>
+     <br/>
+     <% end %>
+<% end %>
+
+
+
+</div>

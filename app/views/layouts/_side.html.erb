@@ -15,7 +15,7 @@
 	<strong>用户群</strong>
 	<% @users = User.find(:all) %>
 	<% for user in @users %>
-	<h2><%= gravatar_for user %> </h2>
+	<h2><%= link_to gravatar_for(user), user %> </h2>
 	<% end %>
 </div>
 <div class="section">
